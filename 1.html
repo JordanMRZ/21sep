@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="shortcut icon" href="fa.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+  <title>Flores Amarillas</title>
+  <style>
+body
+{
+	background-color: #ade8f4;
+    font-family: "Dancing Script", cursive;
+}
+h1
+{
+	color: #3b3235;
+	text-align: center;
+}
+#mensaje{
+  position:fixed;
+  right:30%;
+  border-radius:80px;
+  width:170px;
+  height:65px;
+  background:#a9def9;  
+  padding:20px 0 0 50px;
+  font-family:sans-serif;
+  font-weight:bold;
+  font-size:20px;
+  z-index:2;
+}
+#mensaje:after{
+  content:" ";
+  position:absolute;
+  width:40px;
+  height:60px;
+  top:50px;
+  left:50px;
+  border-radius:20px;
+  box-shadow: inset 0px 0px #a9def9, inset -16px 0px 1px 2px #a9def9;
+  z-index:1;
+}
+#intro p{
+  width:400px;
+  margin:20px auto;
+  font-family:sans-serif;
+}
+.hidden{
+  display:none;
+}
+.mostrar{
+  display:block;
+}
+#botonJugar{
+  width:200px;
+  height: 70px;
+  margin:0 auto;
+  display:block;
+  font-size:30px;
+  background-color:#99c1de;
+  color:#27187e;
+  border:0;
+  border-radius:20px;
+  cursor:pointer;
+}
+div.petalo
+{
+	background-color: #ffea00;
+	border-radius: 40px;
+	width: 40px;
+	height: 40px;
+	position: absolute;
+}
+#centro
+{
+	background-color: #ffaa00;
+	border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	-ms-border-radius: 50px;
+	-o-border-radius: 50px;
+	width: 50px;
+	height: 50px;
+	top:50%;
+	left:50%;
+	position: absolute;
+	margin-top: -25px;
+	margin-left: -25px;
+}
+#tallo
+{
+	width: 8px;
+	height: 75px;
+	background-color: #55a630;
+	margin-top: -128px;
+	margin-left: 145px;
+}
+#maceta
+{
+	width: 80px;
+	height: 15px;
+	background-color: #9c6644;
+	margin-top: -20px;
+	margin-left: 110px;
+    border-radius: 4px;
+}
+#maceta2
+{
+	width: 70px;
+	height: 45px;
+	background-color: #9c6644;
+	margin-top: -10px;
+	margin-left: 115px;
+    border-radius: 8px;
+}
+#hoja
+{
+	background-color: #55a630;
+	border-radius: 15px 0px 15px 0px;
+	width: 15px;
+	height: 15px;
+	margin-left: 150px;
+	margin-top: -45px;
+	position: absolute;
+}
+
+#flor
+{
+	width: 300px;
+	height: 300px;
+	background-color: transparent;
+	position: relative;
+}
+#p1
+{
+	top:105px;
+	left:112px;
+}
+#p2
+{
+	top:105px;
+	left:148px;
+}
+#p3
+{
+	top:130px;
+	left:163px;
+}
+#p4
+{
+	top:130px;
+	left:97px;
+}
+#p5
+{
+	top:155px;
+	left:112px;
+}
+#p6
+{
+	top:155px;
+	left:148px;
+}
+#figura{
+	position: relative;
+	background-color: transparent;
+	top:0px ;
+	left: 0px;
+	width: 300px;
+	margin: auto;
+}
+
+.manga{
+	background: #80ed99;
+	transform:rotate(45deg);
+	-webkit-transform:rotate(45deg);
+	-moz-transform:rotate(45deg);
+	-ms-transform:rotate(45deg);
+	-o-transform:rotate(45deg);
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+  border-radius:5px
+}
+.fondo_manga{
+  background: #80ed99;
+  height: 50px;
+  left: -8px;
+  position: absolute;
+  top: 25px;
+  width: 394px;
+  border-radius:0 0 10px 10px;
+}
+
+#postit{
+  position:fixed;
+  background:#e9ff70;
+  width:200px;
+  height:200px;
+  margin:20px;
+  right:10px;
+  padding:20px;
+}
+#cora{
+  margin-top: 155px;
+  font-size: 25px;
+}
+  </style>
+</head>
+<body>
+   
+        <div id="figura">
+          <div id="flor">
+            <div id="p1" class="petalo animated fadeIn"></div>
+            <div id="p2" class="petalo animated fadeIn"></div>
+            <div id="p3" class="petalo animated fadeIn"></div>
+            <div id="p4" class="petalo animated fadeIn"></div>
+            <div id="p5" class="petalo animated fadeIn"></div>
+            <div id="p6" class="petalo animated fadeIn"></div>
+            <div id="centro" class="animated pulse infinite"></div>
+          </div>
+    
+          <div id="tallo"></div>
+          <div id="hoja"></div>
+          <div id="maceta"></div>
+          <div id="maceta2"></div>
+          <h1>Nunca espectadora :)</h1>
+          <h1 id="cora">Para ti 🤍</h1>
+        </div>
+      
+  <script>
+  /*  window.onload = init;
+var petalos;
+var boton_jugar;
+var valores;
+
+function init(){
+	petalos = document.getElementsByClassName("petalo");
+	asignarEvento();
+  boton_jugar = document.getElementById("botonJugar");
+  boton_jugar.addEventListener("click",abrirJuego);
+}
+function asignarValores(){
+  var numero_aleatorio = Math.round(Math.random()*10);
+  var moneda = numero_aleatorio > 5;
+  valores = [];
+  for(var i=0;i<petalos.length;i++)
+	{
+    valores[i] = moneda;
+    moneda = !moneda;
+  }
+}
+function abrirJuego(){
+  var ventana_actual = document.getElementById("intro");
+  var ventana_juego = document.getElementById("juego");
+  ventana_actual.className = "hidden";
+  ventana_juego.className = "animated fadeIn";
+  asignarValores();
+}
+function asignarEvento(){
+	for(var i=0;i<petalos.length;i++)
+	{
+		petalos[i].addEventListener("click",animar);
+	}
+}
+function colorAleatorio(){
+  var r = Math.round(Math.random()*255);
+  var g = Math.round(Math.random()*255);
+  var b = Math.round(Math.random()*255);
+  return "rgb("+r+","+g+","+b+")";
+}
+function animar(event){
+  var id_petalo = event.target.id;
+  var petalo = document.getElementById(""+id_petalo);
+  //petalo.style.backgroundColor = colorAleatorio(); 
+  petalo.className = "petalo animated fadeOutDown";
+  validarJugada(id_petalo);
+}
+
+function validarJugada(petalo){
+  var indice = parseInt(petalo.substr(1));
+  var str;
+  
+  if(valores[indice-1])
+  {
+    str = "Me quiere";
+  }
+  else
+  {
+    str = "No me quiere";    
+  }
+  //alert(mensaje);
+  texto_mensaje.innerHTML = str;
+  mensaje.className = "mostrar animated fadeIn";
+  setTimeout(()=>{
+    mensaje.className = "hidden";
+  },1000);
+}
+/*window.onload = init;
+var petalos;
+var contador;
+
+function init(){
+	var boton = document.getElementById("boton");
+	boton.addEventListener("click",animar);
+	contador = 0;
+	petalos =         document.getElementsByClassName("petalo");
+}
+
+function animar(){
+	if(contador+1<=petalos.length)
+	{
+		petalos[contador].className = "petalo animated bounce infinite";
+		contador = contador+1;
+	}
+}*/
+  </script>
+</body>
+</html>
